@@ -1,3 +1,10 @@
+#include <sys/shm.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include "../core/keys.h"
+#include "support.h"
 #include "shmFunctions.h"
 
 
