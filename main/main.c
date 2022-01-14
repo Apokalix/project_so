@@ -10,7 +10,7 @@
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
 
-int array[ARRAY_SIZE];
+int *array;
 
 void signHandler(int signum){
     clearMemoryArray();
