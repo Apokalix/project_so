@@ -1,7 +1,7 @@
 #ifndef PROJECT_SO_SUPPORT_H
 #define PROJECT_SO_SUPPORT_H
 
-#define ARRAY_SIZE 15
+#define ARRAY_SIZE 13
 
 #define SO_USERS_NUM 100
 #define SO_NODES_NUM 10

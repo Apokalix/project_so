@@ -9,7 +9,7 @@
 #include "../function_supp/readInputFile.h"
 #include "../function_supp/support.h"
 
-int *array;
+int array[ARRAY_SIZE];
 
 void signHandler(int signum){
     exit(EXIT_FAILURE);
@@ -25,11 +25,12 @@ int main(int argc, char *argv[]) {
    /* array = getSharedArray();
     */
     readInputFile(array);
-    for(i = 0; i < ARRAY_SIZE -1 ; i = i + 1)
+    /*
+    for(i = 0; i < ARRAY_SIZE; i = i + 1)
     {
         printf("%d\n",array[i]);
     }
-
+    */
     result_fork = fork();
     if(result_fork==-1){
         exit(EXIT_FAILURE);
