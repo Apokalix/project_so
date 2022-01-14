@@ -16,19 +16,19 @@ void readInputFile(int array[]) {
     cont = 0;
     while (getline(&line, &size, input_file) != -1) {
         str = strtok(line, " ");
-
+/*
         printf("%s\n", str);
-
+*/
         str = strtok(NULL," ");
         value = atoi(str);
-
+/*
          printf("value: %d\n" , value);
-
+*/
         array[cont] = value;
         cont = cont + 1;
-
+/*
         array[cont++] = value;
-
+*/
     }
     fclose(input_file);
 }

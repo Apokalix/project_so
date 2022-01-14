@@ -25,12 +25,7 @@ int main(int argc, char *argv[]) {
    /* array = getSharedArray();
     */
     readInputFile(array);
-    /*
-    for(i = 0; i < ARRAY_SIZE; i = i + 1)
-    {
-        printf("%d\n",array[i]);
-    }
-    */
+
     result_fork = fork();
     if(result_fork==-1){
         exit(EXIT_FAILURE);
