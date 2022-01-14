@@ -6,7 +6,6 @@
 #include <string.h>
 
 void readInputFile(int array[]) {
-
     int cont;
     char *line = NULL;
     char *str;
@@ -25,7 +24,5 @@ void readInputFile(int array[]) {
         cont = cont + 1;
 
     }
-
     fclose(input_file);
-
 }
