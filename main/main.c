@@ -8,10 +8,12 @@
 #include <string.h>
 #include "../function_supp/readInputFile.h"
 #include "../function_supp/support.h"
+#include "../function_supp/shmFunctions.h"
 
 int array[ARRAY_SIZE];
 
 void signHandler(int signum){
+    clearMemoryArray();
     exit(EXIT_FAILURE);
 }
 
@@ -22,8 +24,7 @@ int main(int argc, char *argv[]) {
 
     signal(SIGINT,signHandler);
 
-   /* array = getSharedArray();
-    */
+    array = getSharedArray();
     readInputFile(array);
 
     result_fork = fork();
@@ -36,6 +37,8 @@ int main(int argc, char *argv[]) {
 
 
     sleep(2);
+
+    clearMemoryArray();
 
     exit(EXIT_SUCCESS);
 }
