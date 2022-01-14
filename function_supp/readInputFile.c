@@ -6,7 +6,6 @@
 #include <string.h>
 
 void readInputFile(int array[]) {
-
     int cont;
     char *line = NULL;
     char *str;
