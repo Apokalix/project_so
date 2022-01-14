@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
    /* array = getSharedArray();
     */
     readInputFile(array);
-    for(i = 0; i < ARRAY_SIZE; i = i + 1)
+    for(i = 0; i < ARRAY_SIZE -1 ; i = i + 1)
     {
         printf("%d\n",array[i]);
     }
