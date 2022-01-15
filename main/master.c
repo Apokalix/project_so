@@ -6,10 +6,21 @@
 #include <sys/msg.h>
 #include <errno.h>
 #include <string.h>
+#include "../function_supp/support.h"
+#include "../function_supp/shmFunctions.h"
+
+int *array;
 
 int main(int argc, char *argv[]){
-    printf("\n");
-    printf("hello world");
+    int i;
+
+
+    array = getSharedArray();
+    /*
+    for (i = 0; i < ARRAY_SIZE; i++){
+        printf("%d\n", array[i]);
+    }
+    */
 
     exit(EXIT_SUCCESS);
 }

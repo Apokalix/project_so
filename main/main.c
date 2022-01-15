@@ -20,7 +20,6 @@ void signHandler(int signum){
 int main(int argc, char *argv[]) {
     int result_fork;
     char **master_prm=NULL;
-    int i;
 
     signal(SIGINT,signHandler);
 
@@ -34,7 +33,6 @@ int main(int argc, char *argv[]) {
     else if(result_fork == 0){
         execv("./exec/master", master_prm);
     }
-
 
     sleep(2);
 
