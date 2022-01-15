@@ -35,7 +35,6 @@ int main(int argc, char *argv[]) {
     }
 
     sleep(2);
-
     clearMemoryArray();
 
     exit(EXIT_SUCCESS);
