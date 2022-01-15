@@ -9,6 +9,7 @@
 #include "../function_supp/readInputFile.h"
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
+#include "../core/transaction.h"
 
 int *array;
 
@@ -20,6 +21,26 @@ void signHandler(int signum){
 int main(int argc, char *argv[]) {
     int result_fork;
     char **master_prm=NULL;
+    int line,page;
+
+
+    Transaction book[SO_BLOCK_SIZE][SO_REGISTRY_SIZE];
+
+    /*
+    for(page = 0; page < SO_REGISTRY_SIZE; page ++) {
+        for (line = 0; line < SO_BLOCK_SIZE; line++) {
+                book[line][page].timestamp = 'A';
+        }
+    }
+
+        for (page = 0; page < SO_REGISTRY_SIZE; page++) {
+        printf("\n");
+        for (line = 0; line < SO_BLOCK_SIZE; line++) {
+            printf(" %c", book[line][page].timestamp);
+        }
+    }
+    printf("\n");
+    */
 
     signal(SIGINT,signHandler);
 

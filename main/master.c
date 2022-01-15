@@ -12,8 +12,6 @@
 int *array;
 
 int main(int argc, char *argv[]){
-    int i;
-
 
     array = getSharedArray();
     /*

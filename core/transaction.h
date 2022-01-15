@@ -3,9 +3,7 @@
 #define PROJECT_SO_TRANSACTION_H
 
 typedef struct {
-    char timestamp[25];
-    sender
-    receiver
+    char timestamp;
 
 }Transaction;
 #endif

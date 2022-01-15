@@ -3,7 +3,10 @@
 #include "suppUtility.h"
 #include "../core/transaction.h"
 
-void arrayTimestamp(Transaction *page){
+void arrayTimestamp(Transaction *){
+    time_t t;
+    time(&t);
+    ctime(&t);
 
 
 }
