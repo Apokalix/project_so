@@ -2,5 +2,6 @@
 #define PROJECT_SO_KEYS_H
 
 #define KEYARRAY 15729416
+#define KEYMASTERBOOK 18191017
 
 #endif

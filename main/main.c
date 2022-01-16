@@ -10,21 +10,24 @@
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
 #include "../core/transaction.h"
+#include "../function_supp/shmMasterBook.h"
+#include "../function_supp/creationBook.h"
 
 int *array;
+Transaction *book;
 
 void signHandler(int signum){
     clearMemoryArray();
+    clearMemoryMasterBook();
     exit(EXIT_FAILURE);
 }
 
 int main(int argc, char *argv[]) {
     int result_fork;
     char **master_prm=NULL;
-    int line,page;
 
-
-    Transaction book[SO_BLOCK_SIZE][SO_REGISTRY_SIZE];
+   book=getSharedMasterBook();
+   bookInit(book,SO_REGISTRY_SIZE,SO_BLOCK_SIZE);
 
     /*
     for(page = 0; page < SO_REGISTRY_SIZE; page ++) {
@@ -57,6 +60,7 @@ int main(int argc, char *argv[]) {
 
     sleep(2);
     clearMemoryArray();
+    clearMemoryMasterBook();
 
     exit(EXIT_SUCCESS);
 }
