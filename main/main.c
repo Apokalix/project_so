@@ -26,26 +26,16 @@ int main(int argc, char *argv[]) {
     int result_fork;
     char **master_prm=NULL;
 
-   book=getSharedMasterBook();
-   bookInit(book,SO_REGISTRY_SIZE,SO_BLOCK_SIZE);
 
-    /*
-    for(page = 0; page < SO_REGISTRY_SIZE; page ++) {
-        for (line = 0; line < SO_BLOCK_SIZE; line++) {
-                book[line][page].timestamp = 'A';
-        }
-    }
+    book=getSharedMasterBook();
+    bookInit(book);
+    printBook(book);
 
-        for (page = 0; page < SO_REGISTRY_SIZE; page++) {
-        printf("\n");
-        for (line = 0; line < SO_BLOCK_SIZE; line++) {
-            printf(" %c", book[line][page].timestamp);
-        }
-    }
+
     printf("\n");
-    */
 
     signal(SIGINT,signHandler);
+
 
     array = getSharedArray();
     readInputFile(array);
