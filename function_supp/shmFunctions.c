@@ -39,3 +39,8 @@ void clearMemoryArray(){
         exit(EXIT_FAILURE);
     }
 }
+
+int getIDSupp(){
+
+
+}
