@@ -28,11 +28,9 @@ int main(int argc, char *argv[]) {
     int result_fork;
     char **master_prm=NULL;
 
-
     book=getSharedMasterBook();
-
+    bookInit(book);
     signal(SIGINT,signHandler);
-
 
     array = getSharedArray();
     readInputFile(array);

@@ -10,36 +10,28 @@
 #include "../core/transaction.h"
 #include "support.h"
 
-Transaction masterBook[SO_REGISTRY_SIZE][SO_BLOCK_SIZE];
-
 void bookInit(Transaction *book){
-    int i = 0;
-    int j = 0;
+    int line,column;
     int c = 1;
 
-
-
-    for(i = 0; i < SO_REGISTRY_SIZE; i ++) {
-        for (j = 0; j < SO_BLOCK_SIZE; j++) {
-            masterBook[i][j].timestamp = c;
+    for(line = 0; line < SO_REGISTRY_SIZE; line ++) {
+        for (column = 0; column < SO_BLOCK_SIZE; column++) {
+            book[column+(line*SO_BLOCK_SIZE)].timestamp = c ;
+            book[column+(line*SO_BLOCK_SIZE)].sender = 'A';
             c++;
         }
     }
-    book = &masterBook[SO_REGISTRY_SIZE][SO_BLOCK_SIZE];
-
 
 }
 
 void printBook(Transaction *book){
-    int i = 0;
-    int j = 0;
+    int line,column;
 
-    book = &masterBook[SO_REGISTRY_SIZE][SO_BLOCK_SIZE];
-
-    for (i = 0; i < SO_REGISTRY_SIZE; i++) {
+    for (line = 0; line < SO_REGISTRY_SIZE; line++) {
         printf("\n");
-        for (j = 0; j < SO_BLOCK_SIZE; j++) {
-            printf(" %d", masterBook[i][j].timestamp);
+        for (column = 0; column < SO_BLOCK_SIZE; column++) {
+            printf(" %d \n %c ", book[column+(line*SO_BLOCK_SIZE)].timestamp,book[column+(line*SO_BLOCK_SIZE)].sender);
         }
     }
+    printf("\n");
 }

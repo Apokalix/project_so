@@ -23,6 +23,8 @@ int main(int argc, char *argv[]){
     array = getSharedArray();
     printArray(array);
 
+    printBook(book);
+
     shmdt(array);
     shmdt(book);
 

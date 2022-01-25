@@ -4,6 +4,6 @@
 
 typedef struct Transaction{
     int timestamp;
-
+    char sender;
 }Transaction;
 #endif
