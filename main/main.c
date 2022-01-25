@@ -37,6 +37,7 @@ int main(int argc, char *argv[]) {
     array = getSharedArray();
     readInputFile(array);
 
+
     result_fork = fork();
     if(result_fork==-1){
         exit(EXIT_FAILURE);

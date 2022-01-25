@@ -11,6 +11,7 @@
 #include "../core/transaction.h"
 #include "../function_main/shmMasterBook.h"
 #include "../function_supp/creationBook.h"
+#include "../function_supp/readInputFile.h"
 
 int *array;
 Transaction *book;
@@ -19,7 +20,8 @@ int main(int argc, char *argv[]){
 
     array = getSharedArray();
     book=getSharedMasterBook();
-
+    array = getSharedArray();
+    printArray(array);
 
     shmdt(array);
     shmdt(book);
