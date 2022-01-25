@@ -11,7 +11,7 @@
 int getIDMasterBook(){
     int shm_id;
 
-    if((shm_id = shmget(KEYMASTERBOOK, (sizeof(struct Transaction) * (SO_BLOCK_SIZE*SO_REGISTRY_SIZE)),0666 |IPC_CREAT)) <0){
+    if((shm_id = shmget(KEYMASTERBOOK, (sizeof(Transaction) * (SO_BLOCK_SIZE*SO_REGISTRY_SIZE)),0666 |IPC_CREAT)) <0){
         fprintf(stderr,"%s: %d. error in shmgetMASTERBOOK #%03d: %s\n", __FILE__, __LINE__, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
