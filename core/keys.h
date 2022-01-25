@@ -3,5 +3,6 @@
 
 #define KEYARRAY 15729416
 #define KEYMASTERBOOK 18191017
+#define KEYFUN 28569387
 
 #endif

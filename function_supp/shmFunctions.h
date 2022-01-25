@@ -3,5 +3,7 @@
 
 int *getSharedArray();
 void clearMemoryArray();
+int *getSharedSuppValues();
+void clearMemorySuppValues();
 
 #endif

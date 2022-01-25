@@ -40,7 +40,25 @@ void clearMemoryArray(){
     }
 }
 
-int getIDSupp(){
+int getIDSuppValues(){
+    int shm_id;
 
+    if((shm_id = shmget(KEYFUN, MAX_VALUE * sizeof(int),0606 |IPC_CREAT))<0){
+        exit(EXIT_FAILURE);
 
+    }
+    return shm_id;
+}
+
+int *getSharedSuppValues(){
+    int *address;
+    address = shmat(getIDSuppValues(), NULL, 0);
+    return address;
+}
+
+void clearMemorySuppValues(){
+    if((shmctl(getIDSuppValues(), IPC_RMID, 0))==-1){
+        fprintf(stderr,"%s: %d. error in shmctlFUN #%03d: %s\n", __FILE__, __LINE__, errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 }

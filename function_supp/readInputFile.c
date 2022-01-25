@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "support.h"
 
 void readInputFile(int array[]) {
     int cont;
@@ -31,4 +32,13 @@ void readInputFile(int array[]) {
         */
     }
     fclose(input_file);
+}
+
+void printArray(int array[]){
+    int i = 0;
+
+    for (i = 0; i < ARRAY_SIZE; i++){
+        printf("%d\n", array[i]);
+    }
+
 }

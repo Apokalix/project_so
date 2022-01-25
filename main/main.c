@@ -10,13 +10,15 @@
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
 #include "../core/transaction.h"
-#include "../function_supp/shmMasterBook.h"
+#include "../function_main/shmMasterBook.h"
 #include "../function_supp/creationBook.h"
 
 int *array;
 Transaction *book;
 
 void signHandler(int signum){
+    shmdt(array);
+    shmdt(book);
     clearMemoryArray();
     clearMemoryMasterBook();
     exit(EXIT_FAILURE);
@@ -28,11 +30,6 @@ int main(int argc, char *argv[]) {
 
 
     book=getSharedMasterBook();
-    bookInit(book);
-    printBook(book);
-
-
-    printf("\n");
 
     signal(SIGINT,signHandler);
 
@@ -49,6 +46,9 @@ int main(int argc, char *argv[]) {
     }
 
     sleep(2);
+
+    shmdt(array);
+    shmdt(book);
     clearMemoryArray();
     clearMemoryMasterBook();
 
