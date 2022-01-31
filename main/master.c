@@ -15,15 +15,21 @@
 
 int *array;
 Transaction *book;
+int timestamp;
+char sender;
+char receiver;
+int import;
+int reward;
 
 int main(int argc, char *argv[]){
 
     array = getSharedArray();
     book=getSharedMasterBook();
     array = getSharedArray();
-    printArray(array);
+    bookInit(book,timestamp,sender, receiver,import,reward);
+    printBook(book,timestamp,sender, receiver,import,reward);
 
-    printBook(book);
+
 
     shmdt(array);
     shmdt(book);

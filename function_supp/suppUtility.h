@@ -3,6 +3,6 @@
 
 #include "../core/transaction.h"
 
-void arrayTimestamp(Transaction *page);
+void arrayTimestamp(char timestamp);
 
 #endif

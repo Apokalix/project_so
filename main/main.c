@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     char **master_prm=NULL;
 
     book=getSharedMasterBook();
-    bookInit(book);
+
     signal(SIGINT,signHandler);
 
     array = getSharedArray();
