@@ -16,11 +16,11 @@ void bookInit(Transaction *book, char timestamp[], char sender, char receiver, i
 
     for(line = 0; line < SO_REGISTRY_SIZE; line++) {
         for (column = 0; column < SO_BLOCK_SIZE; column++) {
-            book[column+(line*SO_BLOCK_SIZE)].timestamp = c;
-            book[column+(line*SO_BLOCK_SIZE)].sender= 'A';
-            book[column+(line*SO_BLOCK_SIZE)].receiver= 'B';
-            book[column+(line*SO_BLOCK_SIZE)].amount= 5;
-            book[column+(line*SO_BLOCK_SIZE)].reward= 10;
+            book[column+(line*SO_BLOCK_SIZE)].timestamp = 'c';
+            book[column+(line*SO_BLOCK_SIZE)].sender = 'A';
+            book[column+(line*SO_BLOCK_SIZE)].receiver = 'B';
+            book[column+(line*SO_BLOCK_SIZE)].amount = 5;
+            book[column+(line*SO_BLOCK_SIZE)].reward = 10;
             c++;
         }
     }

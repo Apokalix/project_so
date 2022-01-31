@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <signal.h>
 #include <unistd.h>
 #include <sys/shm.h>
@@ -18,11 +19,12 @@ Transaction transaction_pool[SO_TP_SIZE];
 
 Transaction transactionReward(int reward){
     Transaction t_reward;
+    char supp_buff[32];
 
 
     t_reward.timestamp = ;
     t_reward.sender = ;
-    t_reward.receiver = getpid();
+    itoa(getpid(), t_reward.receiver, 10);
     t_reward.amount = reward;
     t_reward.reward = 0;
 

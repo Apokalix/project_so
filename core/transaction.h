@@ -4,8 +4,8 @@
 
 typedef struct Transaction{
     char timestamp[20];
-    char sender;
-    char receiver;
+    char sender[32];
+    char receiver[32];
     int amount;
     int reward;
 }Transaction;

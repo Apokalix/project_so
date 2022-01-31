@@ -12,6 +12,7 @@
 #include "../function_main/shmMasterBook.h"
 #include "../function_supp/creationBook.h"
 #include "../function_supp/readInputFile.h"
+#include "../function_main/messageQueue.h"
 
 int *array;
 Transaction *book;
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]){
 
 
 
+    clearMsg();
     shmdt(array);
     shmdt(book);
 
