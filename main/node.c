@@ -30,9 +30,9 @@ Transaction transactionReward(int reward){
 
 }
 
-Transaction extractionPool(int placeholder_pool) {
+Transaction extractionPool(Transaction supp_array[SO_BLOCK_SIZE], int placeholder_pool) {
 
-    Transaction supp_array[SO_BLOCK_SIZE];
+
     int count_dimsup;
     int reward;
 
