@@ -4,7 +4,7 @@
 
 #define MSG_MAX_SIZE 240
 
-struct Msgbuff{
+struct Msgbuf{
     long mtype;
     char mtext[MSG_MAX_SIZE];
 };

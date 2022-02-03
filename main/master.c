@@ -27,8 +27,7 @@ int main(int argc, char *argv[]){
     array = getSharedArray();
     book=getSharedMasterBook();
     array = getSharedArray();
-    bookInit(book,timestamp,sender, receiver,import,reward);
-    printBook(book,timestamp,sender, receiver,import,reward);
+
 
 
 

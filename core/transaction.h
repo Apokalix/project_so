@@ -3,9 +3,9 @@
 #define PROJECT_SO_TRANSACTION_H
 
 typedef struct Transaction{
-    char timestamp[20];
-    char sender[32];
-    char receiver[32];
+    int timestamp;
+    int sender;
+    int receiver;
     int amount;
     int reward;
 }Transaction;
