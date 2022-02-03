@@ -19,6 +19,3 @@ Transaction transactionReward(int t_reward){
     return calc_t_reward;
 
 }
-
-
-
