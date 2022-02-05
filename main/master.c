@@ -16,19 +16,22 @@
 
 int *array;
 Transaction *book;
-int timestamp;
-char sender;
-char receiver;
-int import;
-int reward;
+char **son_prm = NULL;
 
 int main(int argc, char *argv[]){
+    int result_fork;
 
     array = getSharedArray();
     book=getSharedMasterBook();
     array = getSharedArray();
 
-
+    result_fork = fork();
+    if(result_fork == -1){
+        exit(EXIT_FAILURE);
+    }
+    else if (result_fork == 0){
+        execv("./exec/user", son_prm);
+    }
 
 
     clearMsg();

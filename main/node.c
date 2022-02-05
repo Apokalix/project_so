@@ -18,11 +18,12 @@
 #include "../function_supp/nodeUtility.h"
 
 struct Msgbuf msg;
+int *array;
 Transaction *book;
-Transaction transaction_pool[SO_TP_SIZE];
 int placeholder_pool;
 
-void receiveMsg(int i){
+
+void receiveMsg(Transaction *transaction_pool, int i){
     char *str;
     int timestamp,sender,receiver,amount,reward;
 
@@ -46,7 +47,7 @@ void receiveMsg(int i){
 
 }
 
-Transaction extractionPool() {
+Transaction extractionPool(Transaction *transaction_pool) {
 
     Transaction supp_array[SO_BLOCK_SIZE];
     int count_dimsup;
@@ -63,32 +64,33 @@ Transaction extractionPool() {
     return *supp_array;
 }
 
-void populationPool(){
+void populationPool(Transaction *transaction_pool){
     int i;
     i = placeholder_pool;
 
-    for(i = 0; i < SO_TP_SIZE; i++){
-      receiveMsg(i);
+    for(i = 0; i < array[SO_TP_SIZE]; i++){
+      receiveMsg(transaction_pool, i);
     }
-    if(i == SO_TP_SIZE){
+    if(i == array[SO_TP_SIZE]){
         /* msg_error */
     }
 
     placeholder_pool = i;
 }
 
-
-
-
-
-
 int main(int argc, char *argv[]) {
+
+    array=getSharedArray();
+
+    Transaction transaction_pool[array[SO_TP_SIZE]];
 
     placeholder_pool = 0;
 
     book=getSharedMasterBook();
     compilationBook(extractionPool());
 
+    shmdt(array);
+    exit(EXIT_SUCCESS);
 }
 
 void compilationBook(Transaction supp_array){
