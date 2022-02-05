@@ -20,6 +20,6 @@
 
 #define MAX_VALUE 1
 
-
+#define TIME_SIMULATION 0
 
 #endif

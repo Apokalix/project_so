@@ -6,6 +6,7 @@
 #include <sys/msg.h>
 #include <errno.h>
 #include <string.h>
+#include <wait.h>
 #include "../function_supp/readInputFile.h"
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
@@ -15,6 +16,7 @@
 
 int *array;
 Transaction *book;
+int *supp_values;
 
 void signHandler(int signum){
     shmdt(array);
@@ -35,6 +37,8 @@ int main(int argc, char *argv[]) {
     array = getSharedArray();
     readInputFile(array);
 
+    supp_values = getSharedSuppValues();
+    supp_values[TIME_SIMULATION] = array[SO_SIM_SEC];
 
     result_fork = fork();
     if(result_fork==-1){
@@ -43,13 +47,18 @@ int main(int argc, char *argv[]) {
     else if(result_fork == 0){
         execv("./exec/master", master_prm);
     }
+    else{
+        wait(NULL);
+    }
 
     sleep(2);
 
     shmdt(array);
     shmdt(book);
+    shmdt(supp_values);
     clearMemoryArray();
     clearMemoryMasterBook();
+    clearMemorySuppValues();
 
     exit(EXIT_SUCCESS);
 }
