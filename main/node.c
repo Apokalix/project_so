@@ -21,7 +21,7 @@ struct Msgbuf msg;
 int *array;
 Transaction *book;
 int placeholder_pool, placeholder_extraction;
-
+Transaction supp_array[SO_BLOCK_SIZE];
 
 void receiveMsg(Transaction *transaction_pool, int i){
     char *str;
@@ -49,7 +49,7 @@ void receiveMsg(Transaction *transaction_pool, int i){
 
 Transaction extractionPool(Transaction *transaction_pool) {
 
-    Transaction supp_array[SO_BLOCK_SIZE];
+
     int count_dimsup;
     int t_reward;
 
@@ -78,6 +78,14 @@ void populationPool(Transaction *transaction_pool){
     placeholder_pool = i;
 }
 
+void compilationBook(Transaction *extracted_array){
+    int i;
+    for(i = 0; i < SO_BLOCK_SIZE; i++){
+        bookInit(book,extracted_array[i].timestamp,extracted_array[i].sender,extracted_array[i].receiver,
+                 extracted_array[i].amount,extracted_array[i].reward);
+    }
+}
+
 int main(int argc, char *argv[]) {
 
     array=getSharedArray();
@@ -88,14 +96,14 @@ int main(int argc, char *argv[]) {
     placeholder_extraction = 0;
 
     book=getSharedMasterBook();
-    compilationBook(extractionPool());
+    while(placeholder_pool < SO_TP_SIZE){
+        populationPool(transaction_pool);
+    }
+    extractionPool(transaction_pool);
+
+    compilationBook(supp_array);
 
     shmdt(array);
     exit(EXIT_SUCCESS);
 }
 
-void compilationBook(Transaction supp_array){
-
-    bookInit(book,timestamp,sender,receiver,amount,reward);
-
-}

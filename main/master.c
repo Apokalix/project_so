@@ -47,6 +47,8 @@ int main(int argc, char *argv[]){
     signal(SIGALRM, sigTimeOutHandler);
     alarm(array[SO_SIM_SEC]);
 
+    supp_values[LINE] = 0;
+    supp_values[COLUMN] = 0;
     result_fork = fork();
     if(result_fork == -1){
         exit(EXIT_FAILURE);

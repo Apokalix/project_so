@@ -18,8 +18,10 @@
 #define SO_MAX_TRANS_PROC_NSEC 9
 #define SO_SIM_SEC 10
 
-#define MAX_VALUE 1
+#define MAX_VALUE 3
 
 #define TIME_SIMULATION 0
+#define LINE 1
+#define COLUMN 2
 
 #endif
