@@ -106,4 +106,3 @@ int main(int argc, char *argv[]) {
     shmdt(array);
     exit(EXIT_SUCCESS);
 }
-
