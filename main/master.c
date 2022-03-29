@@ -6,6 +6,7 @@
 #include <sys/msg.h>
 #include <errno.h>
 #include <string.h>
+#include <semaphore.h>
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
 #include "../core/transaction.h"

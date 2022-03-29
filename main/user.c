@@ -7,6 +7,7 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
+#include <semaphore.h>
 #include "../function_supp/support.h"
 #include "../function_main/messageQueue.h"
 #include "../function_supp/shmFunctions.h"
@@ -63,8 +64,6 @@ int budgetCalculation(int budget){
     }
     return budget;
 }
-
-
 
 int main(int argc, char *argv[]) {
     int budget;

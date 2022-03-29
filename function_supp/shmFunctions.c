@@ -7,7 +7,6 @@
 #include "support.h"
 #include "shmFunctions.h"
 
-
 int getIDArray(){
     int shm_id;
 

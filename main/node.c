@@ -7,6 +7,7 @@
 #include <sys/msg.h>
 #include <errno.h>
 #include <string.h>
+#include <semaphore.h>
 #include "../function_supp/readInputFile.h"
 #include "../function_supp/support.h"
 #include "../function_supp/shmFunctions.h"
@@ -48,7 +49,6 @@ void receiveMsg(Transaction *transaction_pool, int i){
 }
 
 Transaction extractionPool(Transaction *transaction_pool) {
-
 
     int count_dimsup;
     int t_reward;
@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     placeholder_extraction = 0;
 
     book=getSharedMasterBook();
-    while(placeholder_pool < SO_TP_SIZE){
+    while(placeholder_pool < array[SO_TP_SIZE]){
         populationPool(transaction_pool);
     }
     extractionPool(transaction_pool);
